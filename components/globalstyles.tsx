@@ -17,6 +17,16 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  textarea {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    &:focus {
+      outline: none;
+      border: 2px solid #D69A7E !important;
+    }
+  }
+
   * {
     box-sizing: border-box;
   }
