@@ -11,9 +11,6 @@ export default async function handler(req, res) {
   console.log('process.env.OPENAI_API_KEY: ', process.env.OPENAI_API_KEY)
   const { message, domain } = req.body;
   if (!message || !domain) return res.status(400).json({ error: "Missing message or domain" })
-  console.log('Message: ', message)
-  console.log('Domain: ', domain)
-  console.log("systemMessages: ", getSystemMessages(domain));
 
   const messages = getSystemMessages(domain);
   messages.push({
