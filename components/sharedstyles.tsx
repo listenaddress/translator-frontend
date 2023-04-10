@@ -32,6 +32,7 @@ const Button = styled.button`
   height: 54px;
   padding: 16px 40px;
   font-size: 1rem;
+  cursor: pointer;
 `
 
 const Label = styled.label`
@@ -63,7 +64,8 @@ const TextAreaWrapper = styled.div`
 `
 
 const InputGroup = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  position: relative;
 `
 
 const Dropdown = styled.select`
@@ -90,9 +92,9 @@ const Dropdown = styled.select`
 `
 
 const DropdownArrow = styled.img`
-  position: relative;
-  right: 15px;
-  top: 76px;
+  position: absolute;
+  left: 225px;
+  top: 46px;
   pointer-events: none;
 `
 

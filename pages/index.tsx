@@ -8,7 +8,6 @@ import {
   Button,
   Label,
   MainWrapper,
-  UnderlineLink,
   TextAreaWrapper,
   InputGroup,
   Dropdown,
@@ -19,10 +18,13 @@ import {
 export default function Home() {
   const [message, setMessage] = useState('')
   const [translation, setTranslation] = useState('')
+  const [translating, setTranslating] = useState(false)
   const [domain, setDomain] = useState('developmental biology')
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    if (!message) return
+    setTranslating(true)
     
     const res = await fetch('/api/completion', {
       method: 'POST',
@@ -39,20 +41,33 @@ export default function Home() {
     } else if (data.message && data.message.content) {
       setTranslation(data.message.content)
     }
+    setTranslating(false)
   }
 
   return (
     <>
       <Header>
-        <Title>Translate science from one domain to another.</Title>
-        <Button>Learn More</Button>
+        {
+          !translation ?
+          <>
+            <Title>Translate science from one domain to another.</Title>
+            <Button>Learn More</Button>
+          </>
+          :
+          <>
+            <Button onClick={() => setTranslation('')}>Clear</Button>
+          </>
+        }
       </Header>
       <MainWrapper>
         {
           !translation &&
           <>
             <InputGroup>
-              <Label>Add text or <UnderlineLink href="#">choose a paper</UnderlineLink> to translate</Label>
+              <Label>Insert text 
+                {/* or <UnderlineLink href="#">choose a paper</UnderlineLink>  */}
+                {` `} to translate
+              </Label>
               <TextAreaWrapper>
                 <TextareaAutosize 
                   value={message}
@@ -85,12 +100,13 @@ export default function Home() {
             </InputGroup>
             <Button
               style={{
-                backgroundColor: '#D69A7E',
+                backgroundColor: translating ? '#ddbcad' : '#D69A7E',
                 cursor: 'pointer',
+                marginTop: '20px',
               }}
               onClick={onSubmit}
             >
-              Translate
+              { translating ? 'Translating' : 'Translate' }
             </Button>
           </>
         }
