@@ -96,6 +96,8 @@ export default function Home() {
               >
                 <option value="developmental biology">Developmental Biology</option>
                 <option value="neuroscience">Neuroscience</option>
+                <option value="philosophy">Philosophy</option>
+                <option value="finance">Finance</option>
               </Dropdown>
             </InputGroup>
             <Button
