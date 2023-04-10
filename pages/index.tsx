@@ -24,6 +24,7 @@ export default function Home() {
   const onSubmit = async (e) => {
     e.preventDefault()
     if (!message) return
+    if (translating) return
     setTranslating(true)
     
     const res = await fetch('/api/completion', {
