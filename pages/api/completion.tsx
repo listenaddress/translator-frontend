@@ -18,14 +18,15 @@ export default async function handler(req, res) {
     content: message
   });
 
-  console.log("messages: ", messages);
-
   try {
+    console.log('About to call openai.createChatCompletion')
     const completion = await openai.createChatCompletion({
       model: "gpt-4",
       // model: "gpt-3.5-turbo",
       messages: messages,
     });
+
+    console.log('completion: ', completion)
 
     console.log(completion.data);
     console.log(completion.data.choices[0].message);
