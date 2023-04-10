@@ -10,6 +10,13 @@ const Header = styled.div`
   text-align: center;
 `
 
+const TranslationMessage = styled.div`
+  background-color: #F5F3F1;
+  padding: 30px 50px;
+  margin-bottom: 40px;
+  border-radius: 26px;
+`
+
 const Title = styled.h1`
   font-size: 1.33rem;
   font-weight: 600;
@@ -55,8 +62,6 @@ const TextAreaWrapper = styled.div`
   resize: none;
 `
 
-
-
 const InputGroup = styled.div`
   margin-bottom: 50px;
 `
@@ -91,4 +96,4 @@ const DropdownArrow = styled.img`
   pointer-events: none;
 `
 
-export { Header, Title, Button, Label, MainWrapper, UnderlineLink, TextAreaWrapper, InputGroup, Dropdown, DropdownArrow }
+export { Header, Title, Button, Label, MainWrapper, UnderlineLink, TextAreaWrapper, InputGroup, Dropdown, DropdownArrow, TranslationMessage }

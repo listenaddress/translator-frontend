@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
+    line-height: 1.4;
   }
 
   a {

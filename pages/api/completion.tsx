@@ -25,13 +25,18 @@ export default async function handler(req, res) {
 
   try {
     const completion = await openai.createChatCompletion({
-      model: "gpt-4",
+      // model: "gpt-4",
+      model: "gpt-3.5-turbo",
       messages: messages,
     });
 
     console.log(completion.data);
     console.log(completion.data.choices[0].message);
-    res.status(200).json({ message: "Success!" });
+    if (completion.data.choices[0].message) {
+      res.status(200).json({ message: completion.data.choices[0].message });
+    } else {
+      res.status(400).json({ message: "No message returned" });
+    }
   } catch (error) {
     console.log(error)
     console.log('Message that failed: ', message)
