@@ -4,7 +4,7 @@ import Message from '../components/message';
 
 import {
   Header,
-  Title, 
+  Title,
   Button,
   Label,
   MainWrapper,
@@ -26,7 +26,6 @@ export default function Home() {
     if (!message) return
     if (translating) return
     setTranslating(true)
-    
     const res = await fetch('/api/completion', {
       method: 'POST',
       headers: {
@@ -50,14 +49,14 @@ export default function Home() {
       <Header>
         {
           !translation ?
-          <>
-            <Title>Translate science from one domain to another.</Title>
-            <Button>Learn More</Button>
-          </>
-          :
-          <>
-            <Button onClick={() => setTranslation('')}>Clear</Button>
-          </>
+            <>
+              <Title>Translate science from one domain to another.</Title>
+              <Button>Read the paper</Button>
+            </>
+            :
+            <>
+              <Button onClick={() => setTranslation('')}>Clear</Button>
+            </>
         }
       </Header>
       <MainWrapper>
@@ -65,12 +64,12 @@ export default function Home() {
           !translation &&
           <>
             <InputGroup>
-              <Label>Insert text 
+              <Label>Insert neuroscience text
                 {/* or <UnderlineLink href="#">choose a paper</UnderlineLink>  */}
                 {` `} to translate
               </Label>
               <TextAreaWrapper>
-                <TextareaAutosize 
+                <TextareaAutosize
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   style={{
@@ -109,8 +108,31 @@ export default function Home() {
               }}
               onClick={onSubmit}
             >
-              { translating ? 'Translating' : 'Translate' }
+              {translating ? 'Translating' : 'Translate'}
             </Button>
+            <div
+              style={{
+                marginTop: '20px',
+              }}
+            >
+              <Label
+                style={{
+                  fontStyle: 'italic',
+                }}
+              >
+                Note: this translation is using GPT-4 and the prompt described in
+                {` `}
+                <a
+                  href="#"
+                  style={{
+                    textDecoration: 'underline',
+                  }}
+                >
+                  our paper
+                </a>
+                .
+              </Label>
+            </div>
           </>
         }
         {
@@ -127,8 +149,8 @@ export default function Home() {
                   fontWeight: '600',
                 }}
               >
-                <div 
-                  style={{ 
+                <div
+                  style={{
                     position: 'relative',
                   }}
                 >
