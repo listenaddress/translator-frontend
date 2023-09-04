@@ -45,7 +45,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div>
       <Header>
         {
           !translation ?
@@ -171,6 +171,6 @@ export default function Home() {
           </div>
         }
       </MainWrapper>
-    </>
+    </div>
   )
 }

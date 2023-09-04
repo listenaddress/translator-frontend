@@ -8,6 +8,13 @@ const Header = styled.div`
   height: 120px;
   background-color: #FBFAFA;
   text-align: center;
+  
+
+  @media (max-width: 776px) {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0;
+  }
 `
 
 const TranslationMessage = styled.div`
@@ -22,6 +29,10 @@ const Title = styled.h1`
   font-weight: 600;
   color: #000;
   padding-right: 30px;
+
+  @media (max-width: 776px) {
+    padding-right: 0;
+  }
 `
 
 const Button = styled.button`
@@ -40,12 +51,14 @@ const Label = styled.label`
   color: #6D6D6D;
 `
 
- const MainWrapper = styled.div`
+const MainWrapper = styled.div`
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  margin-top: 50px;
-` 
+  padding: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+`
 
 const UnderlineLink = styled.a`
   text-decoration: underline;
