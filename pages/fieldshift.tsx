@@ -95,7 +95,6 @@ export default function Home() {
                 onChange={(e) => setDomain(e.target.value)}
               >
                 <option value="developmental biology">Developmental Biology</option>
-                <option value="neuroscience">Neuroscience</option>
                 <option value="philosophy">Philosophy</option>
                 <option value="finance">Finance</option>
               </Dropdown>
