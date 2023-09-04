@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import TextareaAutosize from 'react-textarea-autosize';
 import Message from '../components/message';
+import Link from 'next/link'
 
 import {
   Header,
@@ -50,8 +51,7 @@ export default function Home() {
         {
           !translation ?
             <>
-              <Title>Translate science from one domain to another.</Title>
-              <Button>Read the paper</Button>
+              <Title>Welcome to levinlab.dev</Title>
             </>
             :
             <>
@@ -60,117 +60,28 @@ export default function Home() {
         }
       </Header>
       <MainWrapper>
-        {
-          !translation &&
-          <>
-            <InputGroup>
-              <Label>Insert neuroscience text
-                {/* or <UnderlineLink href="#">choose a paper</UnderlineLink>  */}
-                {` `} to translate
-              </Label>
-              <TextAreaWrapper>
-                <TextareaAutosize
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  style={{
-                    width: 'calc(100% + 4px)',
-                    padding: '20px 24px',
-                    margin: '-2px',
-                    marginBottom: '-6px',
-                    backgroundColor: 'transparent',
-                    border: '2px solid #F2E0D8',
-                    resize: 'none',
-                    borderRadius: '12px',
-                    fontSize: '1rem',
-                  }}
-                  minRows={3}
-                />
-              </TextAreaWrapper>
-            </InputGroup>
-            <InputGroup>
-              <Label>Choose a domain to translate to</Label>
-              <DropdownArrow src="/chevron-down.png" alt="arrow" />
-              <Dropdown
-                value={domain}
-                onChange={(e) => setDomain(e.target.value)}
-              >
-                <option value="developmental biology">Developmental Biology</option>
-                <option value="neuroscience">Neuroscience</option>
-                <option value="philosophy">Philosophy</option>
-                <option value="finance">Finance</option>
-              </Dropdown>
-            </InputGroup>
-            <Button
-              style={{
-                backgroundColor: translating ? '#ddbcad' : '#D69A7E',
-                cursor: 'pointer',
-                marginTop: '20px',
-              }}
-              onClick={onSubmit}
-            >
-              {translating ? 'Translating' : 'Translate'}
-            </Button>
-            <div
-              style={{
-                marginTop: '20px',
-              }}
-            >
-              <Label
-                style={{
-                  fontStyle: 'italic',
-                }}
-              >
-                Note: this translation is using GPT-4 and the prompt described in
-                {` `}
-                <a
-                  href="#"
-                  style={{
-                    textDecoration: 'underline',
-                  }}
-                >
-                  our paper
-                </a>
-                .
-              </Label>
-            </div>
-          </>
-        }
-        {
-          translation &&
-          <div
+        <h3>Links</h3>
+        <div>
+          <Link
+            href="/fieldshift"
             style={{
-              position: 'relative'
+              "textDecoration": "underline",
             }}
           >
-            <Message message={message}></Message>
-            <TranslationMessage>
-              <div
-                style={{
-                  fontWeight: '600',
-                }}
-              >
-                <div
-                  style={{
-                    position: 'relative',
-                  }}
-                >
-                  <img src="arrow-down.png" style={{ position: 'absolute', left: '-35px', top: '-1.7px' }} />
-                </div>
-                Translated to {domain}
-              </div>
-              <div
-                style={{
-                  color: '#585756',
-                  marginTop: '8px',
-                  fontStyle: 'italic',
-                }}
-              >
-                Note: This a hypothesis from GPT, not scientific fact
-              </div>
-            </TranslationMessage>
-            <Message message={translation} role="assistant"></Message>
-          </div>
-        }
+            FieldSHIFT
+          </Link>
+        </div>
+        {/* https://drmichaellevin.org/ */}
+        <div>
+          <Link
+            href="https://drmichaellevin.org/"
+            style={{
+              "textDecoration": "underline",
+            }}
+          >
+            The Levin Lab
+          </Link>
+        </div>
       </MainWrapper>
     </>
   )
