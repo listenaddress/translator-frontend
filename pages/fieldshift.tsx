@@ -50,7 +50,7 @@ export default function Home() {
         {
           !translation ?
             <>
-              <Title>Translate science from one domain to another.</Title>
+              <Title>FieldSHIFT: Translate science from one domain to another.</Title>
               <Button>Read the paper</Button>
             </>
             :
