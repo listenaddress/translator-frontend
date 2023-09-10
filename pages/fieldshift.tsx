@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import TextareaAutosize from 'react-textarea-autosize';
 import Message from '../components/message';
+import Link from 'next/link'
 
 import {
   Header,
@@ -51,7 +52,9 @@ export default function Home() {
           !translation ?
             <>
               <Title>FieldSHIFT: Translate science from one domain to another.</Title>
-              <Button>Read the paper</Button>
+              <Link href="https://osf.io/269e5/" target="_blank">
+                <Button>Read the paper</Button>
+              </Link>
             </>
             :
             <>
@@ -122,7 +125,7 @@ export default function Home() {
                 Note: this translation is using GPT-4 and the prompt described in
                 {` `}
                 <a
-                  href="#"
+                  href="https://osf.io/269e5/"
                   style={{
                     textDecoration: 'underline',
                   }}
