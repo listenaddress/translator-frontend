@@ -5,44 +5,46 @@ const devBioPrompt =
     "- Use real terms from developmental biology literature." +
     "- Don't include any neuroscience words, like a part of the brain. Do the best you can to find the most relevant translation." +
     "- Be compelling. No fanciful language just be scientifically novel and plausible, given what is known in science." +
-"For example, here are some terms and plausible translations:" +
-"N:Neuron > Cell" +
-"N:Behavior > Morphogenesis" +
-"N:Millisecond > Minute" +
-"N:Memory > Pattern Memory" +
-"N:Brain > Body" +
-"N:Retina > Epithelium" +
-"N:Synapse > Gap junction" +
-"N:Neuroscience > Developmental biology" +
-"N:Navigating > Navigating in morphospace" +
-"N:Lateralization > Left-right asymmetry" +
-"N:Mental illness > Birth defects" +
-"N:Psychiatry > Developmental teratology" +
-"N:Senses > Receptors" +
-"N:Action potential > Change of vmem" +
-"N:Consciousness > Somatic consciousness" +
-"N:Neuroimaging > Body tissue imaging" +
-"N:Synaptic > Electrical-synaptic" +
-"N:Cognitive > Proto-cognitive" +
-"N:Psychiatry > Developmental teratology" +
-"N:Space > Anatomical morphospace" +
-"N:Animal > Tissue" +
-"N:Goals > Target morphologies" +
-"N:Muscle contractions > Cell behavior" +
-"N:Behavioral space > Morphospace" +
-"N:Pattern completion > Regeneration" +
-"N:Behavior > Morphogenesis" +
-"N:Think > Regenerate" +
-"N:Intelligence > Ability to regenerate" +
-"N:Event-related potentials > Bioelectrical signals" +
-"N:Transcranial > Optogenetic" +
-"N:Synaptic activity > Cell-signaling activity" +
-"N:Down the axon > Across the cell surface" +
-"N:Action potential movement within an axon > Differential patterns of Vmem across single cells’ surface" +
-"N:Neurogenesis > Cell proliferation" +
-"N:Neuromodulation > Developmental signaling" +
-"N:Critical plasticity periods > Competency windows for developmental induction events" +
-"N:What are the goals of hedgehogs > What are the target morphologies of hedgehogs" +
+    "- Unless necessary to prove a point, the translation should be structurally similar to the input. " +
+"For example, here are some terms and plausible translations ('N:' is neuroscience and 'D:' is Developmental Biology):" +
+"N:Neuron D:Cell" +
+"N:Behavior D:Morphogenesis" +
+"N:Millisecond D:Minute" +
+"N:Memory D:Pattern Memory" +
+"N:Brain D:Body" +
+"N:Retina D:Epithelium" +
+"N:Synapse D:Gap junction" +
+"N:Neuroscience D:Developmental biology" +
+"N:Navigating D:Navigating in morphospace" +
+"N:Lateralization D:Left-right asymmetry" +
+"N:Mental illness D:Birth defects" +
+"N:Psychiatry D:Developmental teratology" +
+"N:Senses D:Receptors" +
+"N:Action potential D:Change of vmem" +
+"N:Consciousness D:Somatic consciousness" +
+"N:Neuroimaging D:Body tissue imaging" +
+"N:Synaptic D:Electrical-synaptic" +
+"N:Cognitive D:Proto-cognitive" +
+"N:Psychiatry D:Developmental teratology" +
+"N:Space D:Anatomical morphospace" +
+"N:Animal D:Tissue" +
+"N:Goals D:Target morphologies" +
+"N:Muscle contractions D:Cell behavior" +
+"N:Behavioral space D:Morphospace" +
+"N:Pattern completion D:Regeneration" +
+"N:Behavior D:Morphogenesis" +
+"N:Think D:Regenerate" +
+"N:Intelligence D:Ability to regenerate" +
+"N:Event-related potentials D:Bioelectrical signals" +
+"N:Transcranial D:Optogenetic" +
+"N:Down the axon D:Across the cell surface" +
+"N:Action potential movement within an axon D:Differential patterns of Vmem across single cells’ surface" +
+"N:Neurogenesis D:Cell proliferation" +
+"N:Neuromodulation D:Developmental signaling" +
+"N:Critical plasticity periods D:Competency windows for developmental induction events" +
+"N:What are the goals of hedgehogs D:What are the target morphologies of hedgehogs" +
+"N:On brains. Retina, behavioral plasticity, muscle, synaptic activity and lateralization D:On bodies. Epithelium, regenerative capacity, cell, cell-signaling activity  and left-right asymmetry" +
+"N:The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself. Therefore, all progress depends on the unreasonable man. -George Bernard Shaw. D:The receptive cell attunes itself to the morphospace; the uncompromising one persists in trying to modulate the morphospace to fit the correct target morphology. Therefore, all advancement in morphogenesis hinges on the uncompromising cell. -George Bernard Shaw (translated)." +
 "[Examples done] Ok GPT. Please translate the following user messages to developmental biology..."
 
 const getSystemMessages = (domain: string) => {
