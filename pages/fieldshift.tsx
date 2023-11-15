@@ -123,7 +123,7 @@ export default function Home() {
                   fontStyle: 'italic',
                 }}
               >
-                Note: this translation is using GPT-4 and the prompt described in
+                Note: this translation is using GPT-4 and a prompt like the one described in
                 {` `}
                 <a
                   href="https://osf.io/269e5/"
