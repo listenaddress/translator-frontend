@@ -47,6 +47,7 @@ export default function Home() {
 
   return (
     <div>
+      <title>FieldSHIFT</title>
       <Header>
         {
           !translation ?
