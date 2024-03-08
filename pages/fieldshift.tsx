@@ -101,6 +101,8 @@ export default function Home() {
                 <option value="developmental biology">Developmental Biology</option>
                 <option value="philosophy">Philosophy</option>
                 <option value="finance">Finance</option>
+                <option value="economics">Economics</option>
+                <option value="materials science">Materials Science</option>
               </Dropdown>
             </InputGroup>
             <Button
@@ -123,7 +125,7 @@ export default function Home() {
                   fontStyle: 'italic',
                 }}
               >
-                Note: this translation is using GPT-4 and a prompt like the one described in
+                This translation is using GPT-4 and a prompt like the one described in
                 {` `}
                 <a
                   href="https://osf.io/269e5/"
