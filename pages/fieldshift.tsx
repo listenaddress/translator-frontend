@@ -147,7 +147,7 @@ export default function Home() {
                 >
                   our paper
                 </a>
-                . You can find the code
+                . You can find the code{` `}
                 <a
                   href="https://github.com/your-repo/your-project"
                   style={{
