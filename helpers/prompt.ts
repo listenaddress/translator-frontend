@@ -11,7 +11,7 @@ const devBioPrompt =
     "N:Behavior D:Morphogenesis" +
     "N:Millisecond D:Minute" +
     "N:Memory D:Pattern Memory" +
-    "N:Brain D:Body" +
+    "N:What might a brain scan find? D:What might a body scan find?" +
     "N:Retina D:Epithelium" +
     "N:Synapse D:Gap junction" +
     "N:Neuroscience D:Developmental biology" +
