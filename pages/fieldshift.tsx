@@ -191,7 +191,7 @@ export default function Home() {
                   fontStyle: 'italic',
                 }}
               >
-                Note: This a hypothesis from GPT, not scientific fact
+                Note: This a hypothesis from an AI, not scientific fact
               </div>
             </TranslationMessage>
             <Message message={translation} role="assistant"></Message>
