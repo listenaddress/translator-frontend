@@ -21,6 +21,7 @@ export default function Home() {
   const [translation, setTranslation] = useState('')
   const [translating, setTranslating] = useState(false)
   const [domain, setDomain] = useState('developmental biology')
+  const [model, setModel] = useState('claude-3.5-sonnet') // New state for model
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -32,7 +33,7 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message, domain }),
+      body: JSON.stringify({ message, domain, model }), // Include model in the request body
     })
 
     const data = await res.json()
@@ -105,6 +106,17 @@ export default function Home() {
                 <option value="materials science">Materials Science</option>
               </Dropdown>
             </InputGroup>
+            <InputGroup>
+              <Label>Choose a model</Label> {/* New Label for model */}
+              <DropdownArrow src="/chevron-down.png" alt="arrow" />
+              <Dropdown
+                value={model}
+                onChange={(e) => setModel(e.target.value)}
+              >
+                <option value="gpt-4o">GPT-4o</option>
+                <option value="claude-3.5-sonnet">Claude 3.5 Sonnet</option>
+              </Dropdown>
+            </InputGroup>
             <Button
               style={{
                 backgroundColor: translating ? '#ddbcad' : '#D69A7E',
@@ -125,7 +137,7 @@ export default function Home() {
                   fontStyle: 'italic',
                 }}
               >
-                This translation is using GPT-4 and a prompt like the one described in
+                This translation is using a prompt like the one described in
                 {` `}
                 <a
                   href="https://osf.io/269e5/"
@@ -134,6 +146,15 @@ export default function Home() {
                   }}
                 >
                   our paper
+                </a>
+                . You can find the code
+                <a
+                  href="https://github.com/your-repo/your-project"
+                  style={{
+                    textDecoration: 'underline',
+                  }}
+                >
+                  here
                 </a>
                 .
               </Label>

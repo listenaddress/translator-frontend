@@ -1,43 +1,72 @@
 const { Configuration, OpenAIApi } = require("openai");
-import { getSystemMessages } from "../../helpers/prompt";
+import { getAnthropicSystemMessages, getSystemMessages } from "../../helpers/prompt";
+const { Anthropic } = require("@anthropic-ai/sdk");
+
+if (!process.env.OPENAI_API_KEY) {
+  throw new Error("Missing OPENAI_API_KEY environment variable");
+}
+
+if (!process.env.ANTHROPIC_API_KEY) {
+  throw new Error("Missing ANTHROPIC_API_KEY environment variable");
+}
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
+const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 export default async function handler(req, res) {
-  const { message, domain } = req.body;
-  if (!message || !domain) return res.status(400).json({ error: "Missing message or domain" })
-
-  const messages = getSystemMessages(domain);
-  messages.push({
-    role: "user",
-    content: message
-  });
+  const { message, domain, model } = req.body;
+  if (!message || !domain || !model) {
+    return res.status(400).json({ error: "Missing message, domain, or model" });
+  }
 
   try {
-    console.log('About to call openai.createChatCompletion')
-    const completion = await openai.createChatCompletion({
-      model: "gpt-4",
-      // model: "gpt-3.5-turbo",
-      messages: messages,
-    });
+    let completion;
+    if (model === "gpt-4o" || model === "gpt-3.5-turbo") {
+      console.log('About to call openai.createChatCompletion');
+      const messages = getSystemMessages(domain);
+      messages.push({
+        role: "user",
+        content: message
+      });
+      completion = await openai.createChatCompletion({
+        model: model,
+        messages: messages,
+      });
+    } else if (model === "claude-3.5-sonnet") {
+      console.log('About to call anthropic.messages.create');
+      const messages = getAnthropicSystemMessages(domain, message);
 
-    console.log('completion: ', completion)
-
-    console.log(completion.data);
-    console.log(completion.data.choices[0].message);
-    if (completion.data.choices[0].message) {
-      res.status(200).json({ message: completion.data.choices[0].message });
+      completion = await anthropic.messages.create({
+        messages: messages,
+        model: "claude-3-5-sonnet-20240620",
+        max_tokens: 1000,
+      });
     } else {
-      res.status(400).json({ message: "No message returned" });
+      return res.status(400).json({ error: "Invalid model selected" });
+    }
+
+    if (model.startsWith("gpt")) {
+      const responseMessage = completion.data.choices[0].message;
+      if (responseMessage) {
+        res.status(200).json({ message: responseMessage });
+      } else {
+        res.status(400).json({ error: "No message returned from GPT model" });
+      }
+    } else if (model === "claude-3.5-sonnet") {
+      const responseMessage = completion.content[0].text;
+      console.log('responseMessage: ', responseMessage);
+      if (responseMessage) {
+        res.status(200).json({ message: { content: responseMessage } });
+      } else {
+        res.status(400).json({ error: "No message returned from Claude model" });
+      }
     }
   } catch (error) {
-    console.log(error)
-    console.log('Message that failed: ', message)
-    console.log('Domain that failed: ', message)
-    res.status(500).json({ error });
+    console.error('Error during completion:', error);
+    res.status(500).json({ error: "Internal server error" });
   }
 }
