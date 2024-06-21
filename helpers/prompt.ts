@@ -16,22 +16,13 @@ const devBioPrompt =
     "N:Synapse D:Gap junction" +
     "N:Neuroscience D:Developmental biology" +
     "N:Navigating D:Navigating in morphospace" +
-    "N:Lateralization D:Left-right asymmetry" +
     "N:Mental illness D:Birth defects" +
     "N:Psychiatry D:Developmental teratology" +
     "N:Senses D:Receptors" +
     "N:Action potential D:Change of vmem" +
     "N:Consciousness D:Somatic consciousness" +
-    "N:Neuroimaging D:Body tissue imaging" +
-    "N:Synaptic D:Electrical-synaptic" +
     "N:Cognitive D:Proto-cognitive" +
     "N:Psychiatry D:Developmental teratology" +
-    "N:Space D:Anatomical morphospace" +
-    "N:Animal D:Tissue" +
-    "N:Goals D:Target morphologies" +
-    "N:Muscle contractions D:Cell behavior" +
-    "N:Behavioral space D:Morphospace" +
-    "N:Pattern completion D:Regeneration" +
     "N:Behavior D:Morphogenesis" +
     "N:Think D:Regenerate" +
     "N:Intelligence D:Ability to regenerate" +
