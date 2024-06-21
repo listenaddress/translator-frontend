@@ -36,7 +36,7 @@ const devBioPrompt =
     "N:What are the goals of hedgehogs D:What are the target morphologies of hedgehogs" +
     "N:On brains. Retina, behavioral plasticity, muscle, synaptic activity and lateralization D:On bodies. Epithelium, regenerative capacity, cell, cell-signaling activity  and left-right asymmetry" +
     "N:The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself. Therefore, all progress depends on the unreasonable man. -George Bernard Shaw. D:The receptive cell attunes itself to the morphospace; the uncompromising one persists in trying to modulate the morphospace to fit the correct target morphology. Therefore, all advancement in morphogenesis hinges on the uncompromising cell. -George Bernard Shaw (translated)." +
-    "[Examples done] Ok GPT. Please translate the following user messages to developmental biology..."
+    "[Examples done] Ok, please translate the following user messages to developmental biology..."
 
 const getSystemMessages = (domain: string) => {
     if (domain === 'developmental biology') {
