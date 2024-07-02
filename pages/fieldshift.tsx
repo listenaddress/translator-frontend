@@ -149,7 +149,7 @@ export default function Home() {
                 </a>
                 . You can find the code{` `}
                 <a
-                  href="https://github.com/your-repo/your-project"
+                  href="https://github.com/listenaddress/translator-frontend"
                   style={{
                     textDecoration: 'underline',
                   }}
