@@ -54,7 +54,7 @@ export default function Home() {
           !translation ?
             <>
               <Title>FieldSHIFT: Translate science from one domain to another.</Title>
-              <Link href="https://osf.io/269e5/" target="_blank">
+              <Link href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00185g" target="_blank">
                 <Button>Read the paper</Button>
               </Link>
             </>
@@ -140,7 +140,7 @@ export default function Home() {
                 This translation is using a prompt like the one described in
                 {` `}
                 <a
-                  href="https://osf.io/269e5/"
+                  href="https://pubs.rsc.org/en/content/articlelanding/2024/dd/d3dd00185g"
                   style={{
                     textDecoration: 'underline',
                   }}
