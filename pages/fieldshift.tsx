@@ -104,6 +104,8 @@ export default function Home() {
                 <option value="finance">Finance</option>
                 <option value="economics">Economics</option>
                 <option value="materials science">Materials Science</option>
+                <option value="olfaction and behavior">Olfaction and Behavior</option>
+                <option value="cell signaling">Cell Signaling</option>
               </Dropdown>
             </InputGroup>
             <InputGroup>
