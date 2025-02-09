@@ -113,7 +113,13 @@ export default function Home() {
                 />
               </TextAreaWrapper>
               <div style={{ marginTop: '12px' }}>
-                <Label style={{ fontSize: '0.9rem', color: '#585756' }}>Or try one of these examples:</Label>
+                <Label style={{ 
+                  fontSize: '0.9rem', 
+                  color: '#585756',
+                  fontStyle: 'italic' 
+                }}>
+                  Or try one of these examples
+                </Label>
                 <div style={{ 
                   display: 'flex', 
                   flexDirection: 'column', 
