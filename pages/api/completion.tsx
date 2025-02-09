@@ -25,7 +25,7 @@ export default async function handler(req, res) {
 
   try {
     let completion;
-    if (model === "gpt-4o" || model === "gpt-3.5-turbo") {
+    if (model === "gpt-4o" || model === "gpt-3.5-turbo" || model === "o3-mini") {
       console.log('About to call openai.createChatCompletion');
       const messages = getSystemMessages(domain);
       messages.push({
@@ -49,7 +49,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid model selected" });
     }
 
-    if (model.startsWith("gpt")) {
+    if (model.startsWith("gpt") || model === "o3-mini") {
       const responseMessage = completion.data.choices[0].message;
       if (responseMessage) {
         res.status(200).json({ message: responseMessage });
